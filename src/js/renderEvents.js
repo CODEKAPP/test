@@ -23,21 +23,57 @@ function openModalOnCardClick(card) {
   modalBox.innerHTML = '';
 
   // Crear elementos HTML para mostrar la información en el modal
-  const cardModal = document.createElement('div');
-  cardModal.classList.add('gallery__modal__card');
-  const modalImage = document.createElement('img');
-  modalImage.classList.add('gallery__modal__image');
-  modalImage.src = imageSrc;
-  modalImage.width = 0;
-  modalImage.height = 0;
+  // const cardModal = document.createElement('div');
+  // cardModal.classList.add('gallery__modal__card');
 
-  const modalTitle = document.createElement('h2');
-  modalTitle.classList.add('gallery__modal__title');
-  modalTitle.textContent = titleText;
+  const dataModal = document.createElement('div');
+  dataModal.classList.add('gallery__modal__data');
+
+  const dataModalInfo = document.createElement('div');
+  dataModalInfo.classList.add('gallery__modal__data__info');
+
+  const dataModalBuy = document.createElement('div');
+  dataModalBuy.classList.add('gallery__modal__data__buy');
+
+  const dataModalSmall = document.createElement('div');
+  dataModalSmall.classList.add('gallery__modal__small');
+
+  const modalImageSmall = document.createElement('img');
+  modalImageSmall.classList.add('gallery__modal__image-small');
+  modalImageSmall.src = imageSrc;
+
+    const modalImage = document.createElement('img');
+    modalImage.classList.add('gallery__modal__image');
+    modalImage.src = imageSrc;
+    modalImage.width = 0;
+    modalImage.height = 0;
+
+
+  const modalWhoTitle = document.createElement('h2');
+  modalWhoTitle.classList.add('gallery__modal__who');
+  modalWhoTitle.textContent = 'WHO';
+
+  const modalTitleWho = document.createElement('h2');
+  modalTitleWho.classList.add('gallery__modal__title');
+  modalTitleWho.textContent = titleText;
+
+  const modalTitle = document.createElement('button');
+  modalTitle.classList.add('gallery__modal__more');
+  modalTitle.textContent = 'MORE FROM THIS AUTHOR';
+
+  const searchQuery = titleText;
+
+  modalTitle.addEventListener('click', function () {
+    const searchText = encodeURIComponent(searchQuery);
+    const googleSearchUrl = `https://www.google.com/search?q=${searchText}`;
+
+    window.open(googleSearchUrl, '_blank');
+  });
 
   const modalDateTitle = document.createElement('h2');
   modalDateTitle.classList.add('gallery__modal__title');
   modalDateTitle.textContent = 'WHEN';
+
   const modalDate = document.createElement('p');
   modalDate.classList.add('gallery__modal__date');
   modalDate.textContent = dateText;
@@ -81,7 +117,8 @@ function openModalOnCardClick(card) {
   modalBuy.classList.add('gallery__modal__buy');
   modalBuy.textContent = 'BUY TICKETS';
   modalBuy.onclick = function () {
-    window.location.href = buyText;
+    var newWindow = window.open(buyText, '_blank');
+    newWindow.opener = null;
   };
 
   const modalVIP = document.createElement('p');
@@ -89,39 +126,54 @@ function openModalOnCardClick(card) {
   modalVIP.textContent = vipText;
 
   const modalBuyVIP = modalBuy.cloneNode(true);
+  modalBuyVIP.onclick = function () {
+    var newWindow = window.open(buyText, '_blank');
+    newWindow.opener = null;
+  };
 
-  const modalInfo = document.createElement('p'); // Nueva línea: Crear elemento para mostrar la información
+  const modalInfo = document.createElement('p');
   modalInfo.classList.add('gallery__modal__info');
-  modalInfo.textContent = infoText; // Nueva línea: Asignar el texto del campo info
+  modalInfo.textContent = infoText;
 
   // Agregar los elementos al modal
-  modalBox.appendChild(cardModal);
-  modalBox.appendChild(modalImage);
-  cardModal.appendChild(modalTitle);
-  cardModal.appendChild(modalDateTitle);
-  cardModal.appendChild(modalDate);
-  cardModal.appendChild(modalTime);
-  cardModal.appendChild(modalPlaceTitle);
-  cardModal.appendChild(modalLocal);
-  cardModal.appendChild(modalPlace);
-  cardModal.appendChild(modalPriceTitle);
-  cardModal.appendChild(modalPrice);
-  cardModal.appendChild(modalBuy);
-  cardModal.appendChild(modalVIP);
-  cardModal.appendChild(modalBuyVIP);
+  dataModal.appendChild(modalImage);
   if (infoText !== '') {
     const modalInfoTitle = document.createElement('h2');
     modalInfoTitle.classList.add('gallery__modal__title');
     modalInfoTitle.textContent = 'Info';
-    cardModal.appendChild(modalInfoTitle);
+    dataModalInfo.appendChild(modalInfoTitle);
   } else {
     const modalInfoTitle = document.createElement('h2');
     modalInfoTitle.classList.add('gallery__modal__title');
     modalInfoTitle.textContent = '';
-    cardModal.appendChild(modalInfoTitle);
+    dataModalInfo.appendChild(modalInfoTitle);
   }
-  // cardModal.appendChild(modalInfoTitle);
-  cardModal.appendChild(modalInfo);
+  // dataModalInfo.appendChild(modalInfoTitle);
+  dataModalSmall.appendChild(modalImageSmall);
+  dataModalInfo.appendChild(modalInfo);
+  dataModalInfo.appendChild(modalDateTitle);
+  dataModalInfo.appendChild(modalDate);
+  dataModalInfo.appendChild(modalTime);
+  dataModalInfo.appendChild(modalPlaceTitle);
+  dataModalInfo.appendChild(modalLocal);
+  dataModalInfo.appendChild(modalPlace);
+  dataModal.appendChild(dataModalInfo);
+
+  dataModalBuy.appendChild(modalWhoTitle);
+  dataModalBuy.appendChild(modalTitleWho);
+  dataModalBuy.appendChild(modalPriceTitle);
+  dataModalBuy.appendChild(modalPrice);
+  dataModalBuy.appendChild(modalBuy);
+  dataModalBuy.appendChild(modalVIP);
+  dataModalBuy.appendChild(modalBuyVIP);
+
+  // modalBox.appendChild(cardModal);
+
+  modalBox.appendChild(dataModalSmall);
+  modalBox.appendChild(dataModal);
+  modalBox.appendChild(dataModalBuy);
+
+  modalBox.appendChild(modalTitle); //busq
 }
 
 // Función para renderizar los eventos en el HTML
@@ -136,8 +188,6 @@ export function renderEvents(events) {
     const card = document.createElement('div');
     card.classList.add('gallery__card');
     card.setAttribute('data-modal-open', ''); // Agregar atributo para abrir el modal al hacer clic
-
-
 
     // Agregar evento de clic a la tarjeta para abrir el modal
     card.addEventListener('click', () => openModalOnCardClick(card));
@@ -156,9 +206,9 @@ export function renderEvents(events) {
     date.classList.add('gallery__date');
     date.textContent = event.date;
 
-        const place = document.createElement('p');
-        place.classList.add('gallery__place');
-        place.textContent = event.place;
+    const place = document.createElement('p');
+    place.classList.add('gallery__place');
+    place.textContent = event.place;
 
     const time = document.createElement('p');
     time.classList.add('gallery__time');
