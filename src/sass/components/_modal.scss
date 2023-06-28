@@ -44,7 +44,7 @@
 .gallery__modal {
   &__box {
     display: flex;
-    flex-direction: row-reverse;
+    // flex-direction: row-reverse;
     margin: 5px;
     flex-wrap: wrap;
     align-content: center;
@@ -85,6 +85,9 @@
       display: inline-block;
       margin-right: 5px;
     }
+  }
+  &__data {
+    display: flex;
   }
 }
 .modalPlace:hover {
