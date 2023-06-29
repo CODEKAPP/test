@@ -42,19 +42,18 @@ function openModalOnCardClick(card) {
   modalImageSmall.classList.add('gallery__modal__image-small');
   modalImageSmall.src = imageSrc;
 
-    const modalImage = document.createElement('img');
-    modalImage.classList.add('gallery__modal__image');
-    modalImage.src = imageSrc;
-    modalImage.width = 0;
-    modalImage.height = 0;
-
+  const modalImage = document.createElement('img');
+  modalImage.classList.add('gallery__modal__image');
+  modalImage.src = imageSrc;
+  modalImage.width = 0;
+  modalImage.height = 0;
 
   const modalWhoTitle = document.createElement('h2');
-  modalWhoTitle.classList.add('gallery__modal__who');
+  modalWhoTitle.classList.add('gallery__modal__title');
   modalWhoTitle.textContent = 'WHO';
 
   const modalTitleWho = document.createElement('h2');
-  modalTitleWho.classList.add('gallery__modal__title');
+  modalTitleWho.classList.add('gallery__modal__date');
   modalTitleWho.textContent = titleText;
 
   const modalTitle = document.createElement('button');
