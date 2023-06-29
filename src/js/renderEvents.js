@@ -35,6 +35,17 @@ function openModalOnCardClick(card) {
   const dataModalBuy = document.createElement('div');
   dataModalBuy.classList.add('gallery__modal__data__buy');
 
+  const dataModalBuyPrice = document.createElement('div');
+  dataModalBuyPrice.classList.add('gallery__modal__data__buy-Price');
+
+  const dataModalBuyPriceStandar = document.createElement('div');
+  dataModalBuyPriceStandar.classList.add(
+    'gallery__modal__data__buy-Price_standar'
+  );
+
+  const dataModalBuyPriceVip = document.createElement('div');
+  dataModalBuyPriceVip.classList.add('gallery__modal__data__buy-Price_vip');
+
   const dataModalSmall = document.createElement('div');
   dataModalSmall.classList.add('gallery__modal__small');
 
@@ -42,19 +53,18 @@ function openModalOnCardClick(card) {
   modalImageSmall.classList.add('gallery__modal__image-small');
   modalImageSmall.src = imageSrc;
 
-    const modalImage = document.createElement('img');
-    modalImage.classList.add('gallery__modal__image');
-    modalImage.src = imageSrc;
-    modalImage.width = 0;
-    modalImage.height = 0;
-
+  const modalImage = document.createElement('img');
+  modalImage.classList.add('gallery__modal__image');
+  modalImage.src = imageSrc;
+  modalImage.width = 0;
+  modalImage.height = 0;
 
   const modalWhoTitle = document.createElement('h2');
-  modalWhoTitle.classList.add('gallery__modal__who');
+  modalWhoTitle.classList.add('gallery__modal__title');
   modalWhoTitle.textContent = 'WHO';
 
   const modalTitleWho = document.createElement('h2');
-  modalTitleWho.classList.add('gallery__modal__title');
+  modalTitleWho.classList.add('gallery__modal__date');
   modalTitleWho.textContent = titleText;
 
   const modalTitle = document.createElement('button');
@@ -162,16 +172,18 @@ function openModalOnCardClick(card) {
   dataModalBuy.appendChild(modalWhoTitle);
   dataModalBuy.appendChild(modalTitleWho);
   dataModalBuy.appendChild(modalPriceTitle);
-  dataModalBuy.appendChild(modalPrice);
-  dataModalBuy.appendChild(modalBuy);
-  dataModalBuy.appendChild(modalVIP);
-  dataModalBuy.appendChild(modalBuyVIP);
-
+  dataModalBuyPriceStandar.appendChild(modalPrice);
+  dataModalBuyPriceStandar.appendChild(modalBuy);
+  dataModalBuyPriceVip.appendChild(modalVIP);
+  dataModalBuyPriceVip.appendChild(modalBuyVIP);
+  
   // modalBox.appendChild(cardModal);
-
   modalBox.appendChild(dataModalSmall);
   modalBox.appendChild(dataModal);
   modalBox.appendChild(dataModalBuy);
+  dataModalBuy.appendChild(dataModalBuyPrice);
+  dataModalBuyPrice.appendChild(dataModalBuyPriceStandar);
+  dataModalBuyPrice.appendChild(dataModalBuyPriceVip);
 
   modalBox.appendChild(modalTitle); //busq
 }
