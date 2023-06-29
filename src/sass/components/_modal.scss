@@ -26,7 +26,7 @@
   z-index: 20;
   display: block;
   max-width: 1034px;
-  max-height: 1000px;
+  height: 95%;
   &__container {
     display: flex;
     flex-direction: row-reverse;
@@ -51,27 +51,26 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   &__box {
     display: flex;
-    // flex-direction: row-reverse;
-    margin: 5px;
+    margin-bottom: 15px;
     flex-wrap: wrap;
     justify-content: center;
-
     flex-direction: column;
   }
   &__image {
-    width: 427px;
-    height: 326px;
-    margin-right: 32px;
+    width: 350px;
+    height: 250px;
+    margin-right: 25px;
   }
   &__title {
     font-weight: 600;
     color: $color-tertiary;
     text-align: left;
     font-size: 24px;
+    margin: 0;
   }
   &__date {
     color: $color-secondary;
@@ -81,24 +80,31 @@
     font-weight: 400;
   }
   &__data__buy {
-    margin-left: 74px;
+    margin-left: 40px;
+    &-Price {
+      display: flex;
+      margin-bottom: 15px;
+    }
   }
   &__buy {
     border-radius: 5px;
-    background: #4c00fe;
-    color: #fff;
+    background: $color-ten;
+    color: $color-primary;
     font-size: 16px;
     font-family: $montserrat;
     font-weight: 500;
     padding: 10px 19px;
+  }
+  &__buy:hover {
+    opacity: 0.8;
   }
   &__price {
     width: 219px;
   }
   &__more {
     border-radius: 5px;
-    border: 1px solid #4c00fe;
-    color: #4c00fe;
+    border: 1px solid $color-ten;
+    color: $color-ten;
     font-size: 16px;
     font-family: $montserrat;
     font-weight: 500;
@@ -106,6 +112,11 @@
     padding: 10px 15px;
     width: 255px;
     margin: 0 auto;
+  }
+  &__more:hover {
+    opacity: 0.7;
+    background-color: $color-ten;
+    color: $color-primary;
   }
   &__place {
     color: $color-secondary;
@@ -130,16 +141,9 @@
       font-size: 16px;
     }
   }
-  /*   &__data__info {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-  } */
 }
 .modalPlace:hover {
   cursor: url('../images/location.svg'), auto;
-  //   width: 20px;
-  //   height: 20px;
 }
 
 .gallery__modal__price::before,
@@ -147,4 +151,40 @@
   content: url('../images/code.svg');
   display: inline-block;
   margin-right: 5px;
+}
+@media screen and (max-width: 480px) {
+  .modal {
+    border-radius: 150px 0px;
+  }
+  .gallery__modal {
+    &__image {
+      display: none;
+    }
+    &__data__buy-Price {
+      flex-direction: column;
+    }
+    &__more {
+      width: 160px;
+      height: 40px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .gallery__modal {
+    &__title {
+      font-size: 16px;
+    }
+    &__date {
+      font-size: 12px;
+    }
+    &__more {
+      font-size: 12px;
+      padding: 5px;
+    }
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .modal {
+    border-radius: 300px 0px;
+  }
 }
