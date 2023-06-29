@@ -35,6 +35,17 @@ function openModalOnCardClick(card) {
   const dataModalBuy = document.createElement('div');
   dataModalBuy.classList.add('gallery__modal__data__buy');
 
+  const dataModalBuyPrice = document.createElement('div');
+  dataModalBuyPrice.classList.add('gallery__modal__data__buy-Price');
+
+  const dataModalBuyPriceStandar = document.createElement('div');
+  dataModalBuyPriceStandar.classList.add(
+    'gallery__modal__data__buy-Price_standar'
+  );
+
+  const dataModalBuyPriceVip = document.createElement('div');
+  dataModalBuyPriceVip.classList.add('gallery__modal__data__buy-Price_vip');
+
   const dataModalSmall = document.createElement('div');
   dataModalSmall.classList.add('gallery__modal__small');
 
@@ -161,16 +172,18 @@ function openModalOnCardClick(card) {
   dataModalBuy.appendChild(modalWhoTitle);
   dataModalBuy.appendChild(modalTitleWho);
   dataModalBuy.appendChild(modalPriceTitle);
-  dataModalBuy.appendChild(modalPrice);
-  dataModalBuy.appendChild(modalBuy);
-  dataModalBuy.appendChild(modalVIP);
-  dataModalBuy.appendChild(modalBuyVIP);
-
+  dataModalBuyPriceStandar.appendChild(modalPrice);
+  dataModalBuyPriceStandar.appendChild(modalBuy);
+  dataModalBuyPriceVip.appendChild(modalVIP);
+  dataModalBuyPriceVip.appendChild(modalBuyVIP);
+  
   // modalBox.appendChild(cardModal);
-
   modalBox.appendChild(dataModalSmall);
   modalBox.appendChild(dataModal);
   modalBox.appendChild(dataModalBuy);
+  dataModalBuy.appendChild(dataModalBuyPrice);
+  dataModalBuyPrice.appendChild(dataModalBuyPriceStandar);
+  dataModalBuyPrice.appendChild(dataModalBuyPriceVip);
 
   modalBox.appendChild(modalTitle); //busq
 }
