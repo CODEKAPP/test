@@ -90,7 +90,7 @@
       font-size: 12px;
     }
   }
-  .gallery_modaldata_info {
+  .gallery__modal__data__info {
     max-height: 400px;
   }
 }
@@ -156,7 +156,7 @@
   overflow-y: auto;
 }
 @media screen and (min-width: 768px) {
-  .gallery__modaldata__info {
+  .gallery__modal__data__info {
     max-height: 250px;
   }
 }
