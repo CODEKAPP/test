@@ -21,7 +21,7 @@ export async function fetchEventsName(searhInput, searchPais, pageNumber) {
         const totalElements = data.page.totalElements;
 
         if (totalElements === 0) {
-            Notiflix.Notify.failure(`No se encontro el evento ${searhInput}`)
+            Notiflix.Notify.failure(`No se encontro el evento ${searhInput}`);
         }else{
             const events = formatEvents(data._embedded.events); // Formatear los eventos
             const totalPages = Math.ceil(data.page.totalElements / pageSize);
