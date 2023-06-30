@@ -60,6 +60,10 @@
   }
 }
 @media screen and (max-width: 480px) {
+  .modal {
+    height: auto;
+    overflow-y: auto;
+  }
   .gallery {
     &__card {
       width: 100px;
@@ -86,8 +90,15 @@
       font-size: 12px;
     }
   }
+  .gallery_modaldata_info {
+    max-height: 400px;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
+  .modal {
+    height: auto;
+    overflow-y: auto;
+  }
   .gallery {
     &__card {
       width: 150px;
@@ -124,7 +135,7 @@
   transform: scale(1.1);
 }
 
-.gallery{
+.gallery {
   &__lat,
   &__long,
   &__price,
@@ -137,5 +148,15 @@
     width: 1px;
     height: 1px;
     visibility: hidden;
+  }
+}
+.gallery_modal_info {
+  height: auto;
+  max-height: 50px;
+  overflow-y: auto;
+}
+@media screen and (min-width: 768px) {
+  .gallery_modaldata_info {
+    max-height: 250px;
   }
 }
