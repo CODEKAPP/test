@@ -1,6 +1,6 @@
 export const selecPaises= [
-    {clave:"*", nombre: "Choose country"},
-    {clave:"ad", nombre: "Andorra"},//no
+    {clave: "*" , nombre: "Choose country"},
+    {clave:"ad", nombre: "Andorra"}, //no
     {clave:"us", nombre: "United States Of America"},// si
     {clave:"ai", nombre: "Anguilla"}, // No
     {clave:"ar", nombre: "Argentina"},// No
