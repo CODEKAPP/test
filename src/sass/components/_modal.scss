@@ -1,190 +1,170 @@
 @import '../utils/variables';
 @import '../utils/mixins';
 
-.backdrop {
-  background-color: $color-nineth;
+.gallery {
   width: 100%;
-  height: 100%;
-  z-index: 10;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-}
-
-.is-hidden {
-  visibility: hidden;
-  opacity: 1;
-  pointer-events: all;
-  display: none;
-}
-
-.modal {
-  font-family: $montserrat;
-  border-radius: 300px 0px;
-  background-color: $background-color-tertiary;
-  z-index: 20;
-  display: block;
-  max-width: 1034px;
-  height: 95%;
-  &__container {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-}
-
-.close {
-  width: 25px;
-  height: 25px;
-  background-color: $background-color-tertiary;
-  margin: 32px;
-  border: $background-color-tertiary;
-}
-
-.gallery__modal {
-  &__small {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  &__small > img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
+  justify-content: space-around;
+  flex-wrap: wrap;
   &__box {
-    display: flex;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
+    margin-bottom: 200px;
+    margin-right: 35px;
+    margin-left: 35px;
+  }
+  &__card {
+    width: 267px;
+    height: 370px;
+    position: absolute;
+    z-index: 2;
+    transition: transform 0.5s linear;
+  }
+  &__border {
+    position: relative;
+    width: 227px;
+    height: 213px;
+    border-radius: 50px 0px;
+    border: 1px solid $rgba-color-tertiary;
+    transform: translate(61px, -26px);
+    z-index: 1;
   }
   &__image {
-    width: 350px;
-    height: 250px;
-    margin-right: 25px;
+    width: 267px;
+    height: 220px;
+    flex-shrink: 0;
+    border-radius: 50px 0px;
   }
   &__title {
-    font-weight: 600;
     color: $color-tertiary;
-    text-align: left;
-    font-size: 24px;
-    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    font-family: $montserrat;
+    font-weight: 700;
   }
   &__date {
-    color: $color-secondary;
-    text-align: left;
-    font-size: 18px;
-    font-family: $montserrat;
-    font-weight: 400;
-  }
-  &_data_buy {
-    margin-left: 40px;
-    &-Price {
-      display: flex;
-      margin-bottom: 15px;
-    }
-  }
-  &__buy {
-    border-radius: 5px;
-    background: $color-ten;
     color: $color-primary;
+    text-align: center;
     font-size: 16px;
     font-family: $montserrat;
-    font-weight: 500;
-    padding: 10px 19px;
-  }
-  &__buy:hover {
-    opacity: 0.8;
-  }
-  &__price {
-    width: 219px;
-  }
-  &__more {
-    border-radius: 5px;
-    border: 1px solid $color-ten;
-    color: $color-ten;
-    font-size: 16px;
-    font-family: $montserrat;
-    font-weight: 500;
-    background-color: $background-color-tertiary;
-    padding: 10px 15px;
-    width: 255px;
-    margin: 0 auto;
-  }
-  &__more:hover {
-    opacity: 0.7;
-    background-color: $color-ten;
-    color: $color-primary;
   }
   &__place {
-    color: $color-secondary;
-    text-align: left;
+    color: $color-primary;
+    text-align: center;
     font-size: 14px;
     font-family: $montserrat;
     font-weight: 600;
     &::before {
-      content: url('../images/location.svg');
+      content: url('../images/Vector.svg');
       display: inline-block;
       margin-right: 5px;
     }
   }
-  &__data {
-    display: flex;
-    align-items: center;
-    margin: 10px 40px;
-    &__title {
-      font-weight: 600;
-      color: $color-tertiary;
-      text-align: left;
-      font-size: 16px;
-    }
-  }
-}
-.modalPlace:hover {
-  cursor: url('../images/location.svg'), auto;
-}
-
-.gallery_modal_price::before,
-.gallery_modal_vip::before {
-  content: url('../images/code.svg');
-  display: inline-block;
-  margin-right: 5px;
 }
 @media screen and (max-width: 480px) {
   .modal {
-    border-radius: 150px 0px;
+    height: auto;
+    overflow-y: auto;
   }
-  .gallery__modal {
+  .gallery {
+    &__card {
+      width: 100px;
+      height: 120px;
+    }
+    &__border {
+      width: 102px;
+      height: 95px;
+      transform: translate(40px, -20px);
+    }
     &__image {
-      display: none;
+      width: 120px;
+      height: 120px;
     }
-    &_data_buy-Price {
-      flex-direction: column;
-    }
-    &__more {
-      width: 160px;
-      height: 40px;
-    }
-  }
-}
-@media screen and (max-width: 768px) {
-  .gallery__modal {
     &__title {
-      font-size: 16px;
+      font-size: 14px;
+      width: 130px;
     }
     &__date {
+      font-size: 14px;
+      width: 130px;
+    }
+    &__place {
       font-size: 12px;
     }
-    &__more {
-      font-size: 12px;
-      padding: 5px;
-    }
+  }
+  .gallery_modaldata_info {
+    max-height: 400px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .modal {
-    border-radius: 300px 0px;
+    height: auto;
+    overflow-y: auto;
+  }
+  .gallery {
+    &__card {
+      width: 150px;
+      height: 120px;
+    }
+    &__border {
+      width: 120px;
+      height: 112px;
+      transform: translate(40px, -20px);
+    }
+    &__image {
+      width: 141px;
+      height: 120px;
+    }
+    &__title {
+      font-size: 16px;
+      width: 152px;
+    }
+    &__date {
+      font-size: 16px;
+      width: 152px;
+    }
+    &__place {
+      font-size: 14px;
+    }
+  }
+}
+.gallery__image:hover {
+  box-shadow: 0 0 4px $color-primary, 0 0 11px $color-primary,
+    0 0 19px $color-primary, 0 0 40px $color-quaternary,
+    0 0 80px $color-quaternary, 0 0 90px $color-quaternary;
+}
+.gallery__card:hover {
+  transform: scale(1.1);
+}
+
+.gallery {
+  &__lat,
+  &__long,
+  &__price,
+  &__vip,
+  &__buy,
+  &__time,
+  &__local,
+  &__info {
+    display: none;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+  }
+}
+.gallery__modal__data__buy {
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+.gallery__modal__data__buy-Price {
+  display: flex;
+}
+.gallery__modal__info {
+  height: auto;
+  max-height: 50px;
+  overflow-y: auto;
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .gallery__modaldata__info {
+    max-height: 250px;
   }
 }
