@@ -150,13 +150,13 @@
     visibility: hidden;
   }
 }
-.gallery_modal_info {
+.gallery__modal__info {
   height: auto;
   max-height: 50px;
   overflow-y: auto;
 }
 @media screen and (min-width: 768px) {
-  .gallery_modaldata_info {
+  .gallery__modaldata__info {
     max-height: 250px;
   }
 }

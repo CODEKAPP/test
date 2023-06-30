@@ -1,4 +1,3 @@
-// import { fetchEventsName} from './js/search';
 import { fetchEvents, } from './js/utils';
 import { selecPaises } from './js/paises';
 import { animation } from './js/arrow';
