@@ -176,7 +176,7 @@ function openModalOnCardClick(card) {
   dataModalBuyPriceStandar.appendChild(modalBuy);
   dataModalBuyPriceVip.appendChild(modalVIP);
   dataModalBuyPriceVip.appendChild(modalBuyVIP);
-  
+
   // modalBox.appendChild(cardModal);
   modalBox.appendChild(dataModalSmall);
   modalBox.appendChild(dataModal);
@@ -206,7 +206,10 @@ export function renderEvents(events) {
 
     const image = document.createElement('img');
     image.classList.add('gallery__image');
-    image.src = event.image;
+    // image.src = event.image;
+    const imageSize = 'RETINA_LANDSCAPE_16_9';
+    const imageUrl = `${event.image}?size=${imageSize}`;
+    image.src = imageUrl;
     image.width = 0;
     image.height = 0;
 

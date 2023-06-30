@@ -1,5 +1,5 @@
 // reder.js ---- Importar la función fetchEvents desde el archivo index.js
-import { fetchEvents } from '../index';
+import { fetchEvents } from './utils';
 import { renderEvents } from './renderEvents';
 import { renderPagination } from './renderPagination';
 

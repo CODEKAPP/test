@@ -79,7 +79,7 @@
     font-family: $montserrat;
     font-weight: 400;
   }
-  &__data__buy {
+  &_data_buy {
     margin-left: 40px;
     &-Price {
       display: flex;
@@ -146,8 +146,8 @@
   cursor: url('../images/location.svg'), auto;
 }
 
-.gallery__modal__price::before,
-.gallery__modal__vip::before {
+.gallery_modal_price::before,
+.gallery_modal_vip::before {
   content: url('../images/code.svg');
   display: inline-block;
   margin-right: 5px;
@@ -160,7 +160,7 @@
     &__image {
       display: none;
     }
-    &__data__buy-Price {
+    &_data_buy-Price {
       flex-direction: column;
     }
     &__more {

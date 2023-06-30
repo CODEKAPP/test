@@ -1,7 +1,5 @@
-// renderPagination.js
-
-// Importar la función fetchEvents y la función renderEvents desde el archivo index.js
-import { fetchEvents } from '../index';
+// Importar la función fetchEvents y la función renderEvents
+import { fetchEvents } from './utils';
 import { renderEvents } from './renderEvents';
 
 // Obtener referencia a la sección de paginación
@@ -28,7 +26,15 @@ function handlePaginationClick(page) {
 
   currentPage = page;
 
-  fetchEvents(pageSize, currentPage)
+  let searhInput = document.querySelector('.header__inputs-1').value;
+  let searchPais = document.querySelector('.header__inputs-2').value;
+
+  const options = {
+    countryCode: searchPais.toUpperCase(),
+    keyword: searhInput,
+  };
+
+  fetchEvents(currentPage, options)
     .then(data => {
       renderEvents(data.events);
       renderPagination(data.totalPages, currentPage);
