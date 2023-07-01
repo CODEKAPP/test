@@ -1,0 +1,25 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+#arrow-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: none;
+  // width: 10px;
+}
+
+#arrow-link img {
+  width: 50px; /* Ajusta el ancho de la imagen */
+  height: auto; /* Calcula automáticamente la altura proporcional */
+  background-color: $rgba-color-quinary;
+
+  border-top-right-radius: 30px;
+  border-end-end-radius: 30px;
+  border-end-start-radius: 30px;
+  border-top-left-radius: 10px;
+  box-shadow: 0 0 0.6rem $color-septenary, 0 0 1.5rem $color-tertiary,
+    -0.2rem 0.1rem 1rem $color-tertiary, 0.2rem 0.1rem 1rem $color-tertiary,
+    0 -0.5rem 2rem $color-quaternary, 0 0.5rem 3rem $color-quaternary;
+}

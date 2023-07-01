@@ -4,16 +4,38 @@
 .test {
   margin: 0;
   display: flex;
-  flex-basis: calc(100% - 32px/3);
+  flex-basis: calc(100% - 32px / 3);
   @include mobile {
     flex-direction: column;
   }
   @include desktop {
     gap: 30px;
   }
-  @include tablet{
+  @include tablet {
     display: flex;
-    flex-basis: calc(100% - 32px/3);
+    flex-basis: calc(100% - 32px / 3);
     gap: 30px;
   }
+}
+
+footer {
+  color: $color-quinary;
+  text-align: center;
+  font-size: 16px;
+  font-family: $montserrat;
+  margin-top: 65px;
+  margin-bottom: 60px;
+}
+.footer__subtext {
+  background: transparent;
+  border: 0;
+  color: $color-quinary;
+  border: 2px dotted $color-quaternary;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.footer__subtext:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px $color-quaternary, inset 0 0 5px $color-primary;
 }

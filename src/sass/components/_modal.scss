@@ -1,0 +1,170 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.gallery {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  &__box {
+    margin-bottom: 200px;
+    margin-right: 35px;
+    margin-left: 35px;
+  }
+  &__card {
+    width: 267px;
+    height: 370px;
+    position: absolute;
+    z-index: 2;
+    transition: transform 0.5s linear;
+  }
+  &__border {
+    position: relative;
+    width: 227px;
+    height: 213px;
+    border-radius: 50px 0px;
+    border: 1px solid $rgba-color-tertiary;
+    transform: translate(61px, -26px);
+    z-index: 1;
+  }
+  &__image {
+    width: 267px;
+    height: 220px;
+    flex-shrink: 0;
+    border-radius: 50px 0px;
+  }
+  &__title {
+    color: $color-tertiary;
+    text-align: center;
+    font-size: 16px;
+    font-family: $montserrat;
+    font-weight: 700;
+  }
+  &__date {
+    color: $color-primary;
+    text-align: center;
+    font-size: 16px;
+    font-family: $montserrat;
+  }
+  &__place {
+    color: $color-primary;
+    text-align: center;
+    font-size: 14px;
+    font-family: $montserrat;
+    font-weight: 600;
+    &::before {
+      content: url('../images/Vector.svg');
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .modal {
+    height: auto;
+    overflow-y: auto;
+  }
+  .gallery {
+    &__card {
+      width: 100px;
+      height: 120px;
+    }
+    &__border {
+      width: 102px;
+      height: 95px;
+      transform: translate(40px, -20px);
+    }
+    &__image {
+      width: 120px;
+      height: 120px;
+    }
+    &__title {
+      font-size: 14px;
+      width: 130px;
+    }
+    &__date {
+      font-size: 14px;
+      width: 130px;
+    }
+    &__place {
+      font-size: 12px;
+    }
+  }
+  .gallery_modaldata_info {
+    max-height: 400px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .modal {
+    height: auto;
+    overflow-y: auto;
+  }
+  .gallery {
+    &__card {
+      width: 150px;
+      height: 120px;
+    }
+    &__border {
+      width: 120px;
+      height: 112px;
+      transform: translate(40px, -20px);
+    }
+    &__image {
+      width: 141px;
+      height: 120px;
+    }
+    &__title {
+      font-size: 16px;
+      width: 152px;
+    }
+    &__date {
+      font-size: 16px;
+      width: 152px;
+    }
+    &__place {
+      font-size: 14px;
+    }
+  }
+}
+.gallery__image:hover {
+  box-shadow: 0 0 4px $color-primary, 0 0 11px $color-primary,
+    0 0 19px $color-primary, 0 0 40px $color-quaternary,
+    0 0 80px $color-quaternary, 0 0 90px $color-quaternary;
+}
+.gallery__card:hover {
+  transform: scale(1.1);
+}
+
+.gallery {
+  &__lat,
+  &__long,
+  &__price,
+  &__vip,
+  &__buy,
+  &__time,
+  &__local,
+  &__info {
+    display: none;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+  }
+}
+.gallery__modal__data__buy {
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+.gallery__modal__data__buy-Price {
+  display: flex;
+}
+.gallery__modal__info {
+  height: auto;
+  max-height: 50px;
+  overflow-y: auto;
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .gallery__modaldata__info {
+    max-height: 250px;
+  }
+}
