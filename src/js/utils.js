@@ -50,22 +50,31 @@ console.log(event)
             }
         }
 
-        if (event.info) {
+      if (event.info) {
+          let eventInfo;
             eventInfo = event.info;
         }
-        if (event.url) {
+      if (event.url) {
+          let eventsUrl;
+
             eventsUrl = event.url;
         }
-        if (event._embedded.venues[0].markets) {
+      if (event._embedded.venues[0].markets) {
+          let localPlaces;
             localPlaces = event._embedded.venues[0].markets[0].name;
         }
-        if (event.priceRanges) {
+      if (event.priceRanges) {
+
+        let pricesStandars;
+        let pricesVIPS;
             pricesStandars =
                 event.priceRanges[0].min + ' ' + event.priceRanges[0].currency;
             pricesVIPS =
                 event.priceRanges[0].max + ' ' + event.priceRanges[0].currency;
         }
-        if (event._embedded.venues[0].location) {
+      if (event._embedded.venues[0].location) {
+        let locationlat;
+        let locationLong;
             locationlat = event._embedded.venues[0].location.latitude;
 
             locationLong = event._embedded.venues[0].location.longitude;
