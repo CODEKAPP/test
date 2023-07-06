@@ -59,8 +59,8 @@ console.log(event)
 
             eventsUrl = event.url;
         }
+        let localPlaces;
       if (event._embedded.venues[0].markets) {
-          let localPlaces;
             localPlaces = event._embedded.venues[0].markets[0].name;
         }
       if (event.priceRanges) {
