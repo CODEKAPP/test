@@ -40,7 +40,7 @@ export function formatEvents(events) {
         const defaultImageUrl = 'https://via.placeholder.com/150'; // URL de imagen por defecto
         let imageUrl = defaultImageUrl;
         let eventInfo = ''; // Variable para almacenar la información del evento
-
+console.log(event)
         if (event.images && event.images.length > 0) {
             for (let image of event.images) {
                 if (image.url) {
