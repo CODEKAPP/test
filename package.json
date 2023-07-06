@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://CODEKAPP.github.com/TEAM-EVENT-BOOSTER",
+  "homepage": "https://CODEKAPP.github.com/test",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /TEAM-EVENT-BOOSTER/"
+    "build": "parcel build src/*.html --public-url /test/"
   },
   "repository": {
     "type": "git",
